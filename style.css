@@ -1,0 +1,12 @@
+body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; padding: 40px; }
+.container { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 500px; }
+h1, h2 { color: #2c3e50; text-align: center; }
+a { color: #3498db; text-decoration: none; }
+.poll-item { display: flex; align-items: center; background: #f9f9f9; margin-bottom: 10px; border-radius: 8px; border-left: 5px solid #3498db; }
+.poll-link { flex-grow: 1; padding: 15px; color: #333; font-weight: 500; }
+input[type="text"] { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+button { background-color: #2ecc71; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer; width: 100%; margin-top: 10px; font-size: 16px; }
+.vote-btn { background-color: #fff; color: #333; border: 1px solid #ddd; text-align: left; display: flex; justify-content: space-between; margin-bottom: 8px; }
+.vote-btn:hover { background-color: #f1f1f1; }
+.badge { background: #3498db; color: white; padding: 2px 8px; border-radius: 10px; font-size: 12px; }
+.del-btn { color: #e74c3c; padding: 0 15px; font-size: 20px; font-weight: bold; }

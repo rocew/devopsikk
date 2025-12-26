@@ -1,0 +1,29 @@
+services:
+  # Веб-сервер (единственный открытый наружу)
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+
+  # PHP обработчик
+  app:
+    build: .
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
+  # База данных (скрыта)
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: polls_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
