@@ -1,6 +1,11 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $db = new PDO("pgsql:host=db;dbname=polls_db", "user", "pass");
+    $host = getenv('DB_HOST');
+    $dbname = getenv('DB_NAME');
+    $user = getenv('DB_USER');
+    $pass = getenv('DB_PASS');
+    
+    $db = new PDO("pgsql:host=$host;dbname=$dbname", $user, $pass);
     $stmt = $db->prepare("INSERT INTO polls (question) VALUES (?) RETURNING id");
     $stmt->execute([$_POST['question']]);
     $pollId = $stmt->fetchColumn();
